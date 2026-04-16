@@ -23,6 +23,14 @@ English | [简体中文](/docs/zh-CN/README_zh-CN.md) | [日本語](/docs/ja/REA
 
 **VLMEvalKit** (the python package name is **vlmeval**) is an **open-source evaluation toolkit** of **large vision-language models (LVLMs)**. It enables **one-command evaluation** of LVLMs on various benchmarks, without the heavy workload of data preparation under multiple repositories. In VLMEvalKit, we adopt **generation-based evaluation** for all LVLMs, and provide the evaluation results obtained with both **exact matching** and **LLM-based answer extraction**.
 
+## Benchmark Reproduction: Sub-1B VLMs
+
+![Benchmark Results](benchmark_1b.png)
+
+```bash
+CUDA_VISIBLE_DEVICES=1 nohup python run.py --data OCRBench AI2D_TEST ChartQA_TEST TextVQA_VAL DocVQA_VAL ScienceQA_TEST MMMU_DEV_VAL MathVista_MINI MMStar MMBench_DEV_EN RealWorldQA MME SEEDBench_IMG POPE BLINK InfoVQA_VAL MM-IFEval --model SmolVLM2-500M --judge chatgpt-0125 > smolvlm2_500m_eval.log 2>&1 &
+```
+
 ## Recent Codebase Changes
 - **[2025-09-12]** **Major Update: Improved Handling for Models with Thinking Mode**
 
