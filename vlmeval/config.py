@@ -2363,6 +2363,7 @@ lfm2vl_series = {
     "LFM2-VL-450M": partial(vlm.LFM2VL, model_path="LiquidAI/LFM2-VL-450M"),
     "LFM2-VL-1.6B": partial(vlm.LFM2VL, model_path="LiquidAI/LFM2-VL-1.6B"),
     "LFM2-VL-3B": partial(vlm.LFM2VL, model_path="LiquidAI/LFM2-VL-3B"),
+    "LFM2.5-VL-450M": partial(vlm.LFM2VL, model_path="LiquidAI/LFM2.5-VL-450M"),
     "LFM2.5-VL-1.6B": partial(vlm.LFM2VL, model_path="LiquidAI/LFM2.5-VL-1.6B"),
 }
 
@@ -2542,9 +2543,24 @@ sensenova_si_series = {
     ),
 }
 
+internvl_pruned = {
+    "InternVL3_5-1B-pruned-v7": partial(
+        vlm.PrunedInternVLChat,
+        model_path="OpenGVLab/InternVL3_5-1B",
+        pruned_ckpt="/home/rishabh/UKMP/LAVIS/pruned_checkpoint/ukmp_prune_internvl/test-run-v7/pruned_model",
+        version="V2.0",
+    ),
+    "InternVL3_5-1B-finetuned-v7": partial(
+        vlm.PrunedInternVLChat,
+        model_path="OpenGVLab/InternVL3_5-1B",
+        pruned_ckpt="/home/rishabh/UKMP/LAVIS/tuned_checkpoint/internvl_finetune/recovery-v7-kd/finetuned_model",
+        version="V2.0",
+    ),
+}
+
 internvl_groups = [
-    internvl, internvl2, internvl2_5, mini_internvl, internvl2_5_mpo, 
-    internvl3, internvl3_5
+    internvl, internvl2, internvl2_5, mini_internvl, internvl2_5_mpo,
+    internvl3, internvl3_5, internvl_pruned
 ]
 internvl_series = {}
 for group in internvl_groups:

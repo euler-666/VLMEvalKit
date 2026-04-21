@@ -29,7 +29,7 @@ from .idefics import IDEFICS, IDEFICS2
 from .insight_v import InsightV
 from .instructblip import InstructBLIP
 from .interns1 import InternS1Chat
-from .internvl import InternVLChat
+from .internvl import InternVLChat, PrunedInternVLChat
 from .janus import Janus
 from .keye_vlm import KeyeChat
 from .kimi_vl import KimiVL

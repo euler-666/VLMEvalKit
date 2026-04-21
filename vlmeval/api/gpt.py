@@ -234,6 +234,9 @@ class OpenAIWrapper(BaseAPI):
             temperature=temperature,
             **kwargs)
 
+        if os.environ.get('LOCAL_LLM', None):
+            payload['chat_template_kwargs'] = {'enable_thinking': False}
+        
         if self.is_max_completion_tokens:
             payload['max_completion_tokens'] = max_tokens
             payload.pop('temperature')
